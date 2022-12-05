@@ -153,5 +153,37 @@ export const getStates = [
       latLng: [-8.795764, 115.162139],
       heading: 300,
     }
+  ],
+  // wave 7
+  [
+    {
+      trackId: 2,
+      latLng: [-8.778477, 115.208976],
+      heading: 223,
+    },
+  ],
+  // wave 8
+  [
+    {
+      trackId: 2,
+      latLng: [-8.774162, 115.204083],
+      heading: 223,
+    },
+  ],
+  // wave 9
+  [
+    {
+      trackId: 2,
+      latLng: [-8.768851, 115.198710],
+      heading: 223,
+    },
+  ],
+  // wave 10
+  [
+    {
+      trackId: 2,
+      latLng: [-8.763635, 115.195927],
+      heading: 244,
+    },
   ]
 ]

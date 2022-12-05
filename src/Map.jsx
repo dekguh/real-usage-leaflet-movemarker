@@ -49,7 +49,7 @@ const Map = () => {
       {
         animate: animatePolyline,
         color: 'red',
-        weight: 4,
+        weight: 10,
         hidePolylines: hidePolylines,
         duration: 10000,
         removeFirstLines: true,
@@ -196,7 +196,8 @@ const Map = () => {
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+          url='http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}'
+          subdomains={['mt0','mt1','mt2','mt3']}
         />
 
       </MapContainer>
