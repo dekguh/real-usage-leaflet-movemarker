@@ -7,16 +7,19 @@ import L from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'l.movemarker'
 //import './L.MoveMarker/L.MoveMarker'
+//import './L.MoveMarker/L.Bundle'
 
 // constants
 import { firstInit, getStates } from './constants'
 
 // components
 import Button from './Button'
+import Clustering from './Clustering'
 
 const Map = () => {
   const intervalRef = useRef(null)
   const currentWaveRef = useRef(1)
+  const [currentWave, setCurrentWave] = useState(1)
 
   // states
   const [mapContext, setMapContext] = useState()
@@ -40,6 +43,19 @@ const Map = () => {
         type === 'disableAllFollowMarker' && item.instance?.getMarker()?.activeFollowMarker(false)
         type === 'activeAnimMarker' && item.instance?.getMarker()?.activeAnimate(animateMarker)
         type === 'activeAnimPolyline' && item.instance?.getCurrentPolyline()?.activeAnimate(animatePolyline)
+      }
+    })
+  }
+
+  const actionAnimationWithValue = (type, value) => {
+    dataMarker.forEach(item => {
+      if(item?.instance) {
+        type === 'hidePolylines' && item.instance.hidePolylines(value)
+        type === 'hideMarkers' && item.instance.getMarker().hideMarker(value)
+        type === 'stopAll' && item.instance.stop()
+        type === 'disableAllFollowMarker' && item.instance?.getMarker()?.activeFollowMarker(value)
+        type === 'activeAnimMarker' && item.instance?.getMarker()?.activeAnimate(value)
+        type === 'activeAnimPolyline' && item.instance?.getCurrentPolyline()?.activeAnimate(value)
       }
     })
   }
@@ -127,6 +143,7 @@ const Map = () => {
           })
         })
         currentWaveRef.current = currentWaveRef.current+1
+        setCurrentWave(currentWaveRef.current)
       }, 11000)
       // fetching duration more than duration L.MoveMarker
       // example L.moveMarker 10 seconds then fetching must 11 seconds
@@ -137,8 +154,9 @@ const Map = () => {
   }, [dataAdded])
 
   useEffect(() => {
-    if(dataMarker.length) actionAnimation('hidePolylines')
-    if(dataMarker.length) actionAnimation('hideMarkers')
+    // uncomment these if dont use cluster
+    //if(dataMarker.length) actionAnimation('hidePolylines')
+    //if(dataMarker.length) actionAnimation('hideMarkers')
     if(dataMarker.length) actionAnimation('activeAnimMarker')
     if(dataMarker.length) actionAnimation('activeAnimPolyline')
   }, [hidePolylines, hideMarker, animateMarker, animatePolyline])
@@ -200,6 +218,15 @@ const Map = () => {
           subdomains={['mt0','mt1','mt2','mt3']}
         />
 
+        {/* comment this component if dont use cluster */}
+        <Clustering
+          actionAnimationWithValue={actionAnimationWithValue}
+          mapContext={mapContext}
+          dataMarker={dataMarker}
+          currentWave={currentWave}
+          hidePolylines={hidePolylines}
+          hideMarker={hideMarker}
+        />
       </MapContainer>
     </div>
   )
