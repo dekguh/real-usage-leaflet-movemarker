@@ -10,11 +10,11 @@ import 'l.movemarker'
 //import './L.MoveMarker/L.Bundle'
 
 // constants
-import { firstInit, getStates } from './constants'
+import { firstInit, getStates } from '../constants/constants'
 
 // components
-import Button from './Button'
-import Clustering from './Clustering'
+import Button from '../components/Button'
+import Clustering from '../components/Clustering'
 
 const Map = () => {
   const intervalRef = useRef(null)
@@ -67,14 +67,14 @@ const Map = () => {
         color: 'red',
         weight: 10,
         hidePolylines: hidePolylines,
-        duration: 10000,
+        duration: 5000,
         removeFirstLines: true,
         maxLengthLines: 3,
       },
       {
         animate: animateMarker,
         hideMarker: hideMarker,
-        duration: 10000,
+        duration: 5000,
         speed: 0,
         followMarker: false,
         rotateMarker: true,
@@ -144,7 +144,7 @@ const Map = () => {
         })
         currentWaveRef.current = currentWaveRef.current+1
         setCurrentWave(currentWaveRef.current)
-      }, 11000)
+      }, 6000)
       // fetching duration more than duration L.MoveMarker
       // example L.moveMarker 10 seconds then fetching must 11 seconds
       // if it same duration, you will got bug

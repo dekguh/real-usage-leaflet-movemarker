@@ -1,17 +1,27 @@
 import React from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom'
 
 // leaflet
 import 'leaflet/dist/leaflet.css'
 
-// components
-import Map from './Map'
+// pages
+import Home from './pages/Home'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+])
 
 function App() {
-
   return (
-    <div className='App'>
-      <Map />
-    </div>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   )
 }
 
