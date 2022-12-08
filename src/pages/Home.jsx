@@ -6,7 +6,7 @@ import * as ReactDOMServer from 'react-dom/server'
 import L from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'l.movemarker'
-//import './L.MoveMarker/L.MoveMarker'
+//import '../L.MoveMarker/L.MoveMarker'
 //import './L.MoveMarker/L.Bundle'
 
 // constants

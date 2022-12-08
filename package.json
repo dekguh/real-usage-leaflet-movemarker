@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "l.movemarker": "^0.0.9",
+    "l.movemarker": "^0.0.10",
     "leaflet": "^1.9.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
