@@ -7,7 +7,7 @@ import L from 'leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'l.movemarker'
 //import '../L.MoveMarker/L.MoveMarker'
-//import './L.MoveMarker/L.Bundle'
+//import '../L.MoveMarker/L.Bundle'
 
 // constants
 import { firstInit, getStates } from '../constants/constants'
@@ -82,12 +82,14 @@ const Map = () => {
         icon: L.divIcon({
           className: 'position-relative rotate--marker',
           html: ReactDOMServer.renderToString(
-            <div>
-              <img
-                style={{ width: '50px' }}
-                src="https://www.pngkit.com/png/full/54-544296_red-top-view-clip-art-at-clker-cartoon.png"
-              />
-            </div>
+            <>
+              <div>
+                <img
+                  style={{ width: '50px' }}
+                  src="https://www.pngkit.com/png/full/54-544296_red-top-view-clip-art-at-clker-cartoon.png"
+                />
+              </div>
+            </>
           ),
         })
       },
@@ -155,8 +157,8 @@ const Map = () => {
 
   useEffect(() => {
     // uncomment these if dont use cluster
-    //if(dataMarker.length) actionAnimation('hidePolylines')
-    //if(dataMarker.length) actionAnimation('hideMarkers')
+    // if(dataMarker.length) actionAnimation('hidePolylines')
+    // if(dataMarker.length) actionAnimation('hideMarkers')
     if(dataMarker.length) actionAnimation('activeAnimMarker')
     if(dataMarker.length) actionAnimation('activeAnimPolyline')
   }, [hidePolylines, hideMarker, animateMarker, animatePolyline])
