@@ -80,13 +80,15 @@ const Map = () => {
         rotateMarker: true,
         rotateAngle: 210,
         icon: L.divIcon({
+          iconSize: [24, 24], // icon size must same with element size
           className: 'position-relative rotate--marker',
           html: ReactDOMServer.renderToString(
             <>
               <div>
                 <img
-                  style={{ width: '50px' }}
-                  src="https://www.pngkit.com/png/full/54-544296_red-top-view-clip-art-at-clker-cartoon.png"
+                  style={{ width: '24px' }}
+                  src="https://cdn-icons-png.flaticon.com/512/876/876828.png"
+                  // icon by flaticon.com
                 />
               </div>
             </>
